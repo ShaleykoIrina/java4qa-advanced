@@ -84,5 +84,6 @@ Starting with Java Code for QA
 Resources
 =========
 http://54.164.53.247:8080/jenkins/
+http://tinyurl.com/DB-2016-04
 
 
