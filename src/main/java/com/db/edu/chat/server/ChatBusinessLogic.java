@@ -19,10 +19,10 @@ public class ChatBusinessLogic implements BusinessLogic {
     }
 
     @Override
-    public void handle() {
+    public void handle() throws IOException {
         BufferedReader socketReader = new BufferedReader(new InputStreamReader(inSocket.getInputStream()));
         String message = socketReader.readLine();
-        if(message == null) break;
+        if(message == null) return;
 
         logger.info("Message from client "
             + inSocket.getInetAddress() + ":"
