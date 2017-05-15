@@ -9,7 +9,7 @@ Starting with Java Code for QA
 - System library overview 
 - Collections overview 
 - IO overview
-- Threads overview 
+- Threads overview + JMM 
 
 # Java App structure + OOAD
 - Class and its responsibility 
