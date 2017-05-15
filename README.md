@@ -11,7 +11,7 @@ Starting with Java Code for QA
 - IO overview
 - Threads overview 
 
-# Java App structure 
+# Java App structure + OOAD
 - Class and its responsibility 
 - Method and its intention 
 - Package and its cohesion 
@@ -31,6 +31,7 @@ Starting with Java Code for QA
 - Primitive types VS Reference types 
 - Arrays 
 - Strings 
+- Generics
 - Static code analyser demo 
 - Java8 key features
 
@@ -39,15 +40,29 @@ Starting with Java Code for QA
 - Exception types 
 - Best practices for exception design 
 
+# Logging APIs
+- APIs overview
+- What to configure
+- SLF4J API + Logback configuration
+
+# JUnit Basics
+- Test structure
+- JUnit
+
 # System Library 
 - j.l.System 
 - Object
 - String
 
+# Reflection
+- Reflection API
+- Byte-code instrumenting
+
 # IO 
 - Streams
 - Sockets
 - Resource use best practices 
+- NIO2 intro
 
 # Threads
 - Threads in Java 
@@ -71,5 +86,8 @@ Starting with Java Code for QA
 - AppServer architecture 
 - Thread Pools 
 - Connection Pools 
-- PerparedStatement Caches
+- PreparedStatement Caches
+
+# Spring Intro
+
 
