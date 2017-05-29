@@ -52,6 +52,20 @@ public class PrimitivesDemo {
 
 //        counter = counter + 1;
         //endregion
+
+        //region Arrays
+        int size = 5;
+        int[][][] array = new int[size][5][0];
+        System.out.println(array[0]);
+
+        int[][] literalArray = {
+                {},
+                {1,2}
+        };
+        eatArray((new int[] {1,2}));
+
+        //endregion
+
     }
 
     private static boolean m2() {
@@ -61,5 +75,7 @@ public class PrimitivesDemo {
     private static boolean m1() {
         return false;
     }
+
+    private static void eatArray(int[] arg) {}
 }
 

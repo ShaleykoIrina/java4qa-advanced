@@ -31,6 +31,7 @@ Starting with Java Code for QA
 - Primitive types VS Reference types 
 - Arrays 
 - Strings 
+- Overloading
 - Generics
 - Static code analyser demo 
 - Java8 key features
