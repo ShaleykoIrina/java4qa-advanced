@@ -1,13 +1,15 @@
 package loggerdemo.edu;
 
 public class Logger {
+     public static final String MY_SUPER_CONST = "QQQQQ";
+     static int i;
+    private static String message;
+
     /**
      * JavaDoc comment. <b>AHTUNG!!!! NOT NULL!!</b>
-     * @param message
-     * @param message
      * @throws
      */
-    public static void log(String message) {
+    public static void log() {
         if (filter(message)) {
             save(message);
         }
