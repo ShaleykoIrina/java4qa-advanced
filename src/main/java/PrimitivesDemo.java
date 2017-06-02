@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class PrimitivesDemo {
     public strictfp static void main(String[] args) {
         //region Primitives
@@ -51,7 +53,7 @@ public class PrimitivesDemo {
         System.out.println(result ? "1" : true ? "2" : "3");
 
 //        counter = counter + 1;
-        //endregion
+        //endregionxw
 
         //region Arrays
         int size = 5;
@@ -65,6 +67,20 @@ public class PrimitivesDemo {
         eatArray((new int[] {1,2}));
 
         //endregion
+
+        //region Strings: intern
+        String str1 = "abc";
+        String str2 = "abc";
+        System.out.println(str1 == str2);
+
+        StringBuffer sbf = new StringBuffer("1");
+        StringBuilder sbl;
+        sbf.append("2");
+
+//        (("12" + "222") + "444") + "666" + "777";
+//        sbl.append("12").append("222")
+        //endregion
+
 
     }
 
