@@ -1,26 +1,22 @@
 package loggerdemo.edu;
 
 public class Logger {
-     public static final String MY_SUPER_CONST = "QQQQQ";
-     static int i;
-    private static String message;
+    //GRASP: Creator
+    private LoggerFilter filter = new FilterFactory().create(); //Factory -> Abstract Factory
+    private LoggerSaver saver; //DI
+
+    public Logger(LoggerSaver saver) {
+        this.saver = saver;
+    }
 
     /**
      * JavaDoc comment. <b>AHTUNG!!!! NOT NULL!!</b>
      * @throws
      */
-    public static void log() {
-        if (filter(message)) {
-            save(message);
+    public void log(String message) {
+        if (filter.filter(message)) {
+            saver.save(message);
         }
-    }
-
-    private static void save(String message) {
-        System.out.println(message);
-    }
-
-    private static boolean filter(String message) {
-        return !message.equals("fff");
     }
 }
 
