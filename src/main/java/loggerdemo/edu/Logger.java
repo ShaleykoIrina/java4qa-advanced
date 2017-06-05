@@ -5,7 +5,8 @@ public class Logger {
     private LoggerFilter filter = new FilterFactory().create(); //Factory -> Abstract Factory
     private LoggerSaver saver; //DI
 
-    public Logger(LoggerSaver saver) {
+    public Logger(LoggerFilter filter, LoggerSaver saver) {
+        this.filter = filter;
         this.saver = saver;
     }
 
@@ -15,6 +16,13 @@ public class Logger {
      */
     public void log(String message) {
         if (filter.filter(message)) {
+            /*
+            if (filter instanceof MessageContentLoggerFilter) {
+                ((MessageContentLoggerFilter) filter).filter(true);
+            } else {
+                ???
+            }
+            */
             saver.save(message);
         }
     }
