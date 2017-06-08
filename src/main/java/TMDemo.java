@@ -4,18 +4,24 @@ import java.util.function.Supplier;
 
 public class TMDemo {
     public static void main(String[] args) {
-        new MyBlWorkflow().execute();
+        new SqlWorkflow().execute();
     }
 }
 
 //Template Method
 abstract class SqlWorkflow {
+    private BLStrategy blStrategy;
+
+    protected SqlWorkflow(BLStrategy blStrategy) {
+        this.blStrategy = blStrategy;
+    }
+
     public final void execute() {
         Connection c = ;
         try {
             c = ???;
 
-            this.doBusinessLogic();
+            blStrategy.doBusinessLogic();
 
             while ((w = w.getNextWarning()) != null) {
 
@@ -34,13 +40,9 @@ abstract class SqlWorkflow {
 
     }
 
-    protected abstract void doBusinessLogic();
 
 }
 
-class MyBlWorkflow extends SqlWorkflow {
-    @Override
-    protected void doBusinessLogic() {
-        //
-    }
+interface BLStrategy {
+     void doBusinessLogic();
 }
