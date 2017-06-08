@@ -1,15 +1,22 @@
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class TMDemo {
     public static void main(String[] args) {
-        new SqlWorkflow().execute();
+        new SqlWorkflow(arg -> "AAAAA!!!! Пощади!!!!!").execute();
+
+        new ArrayList<String>().stream()
+            .filter(el -> el.length() > 10)
+            .sorted((e1,e2) -> e1.compareTo(e2) - 10)
+            .map(Integer::parseInt)
+            .forEach(System.out::println);
     }
 }
 
 //Template Method
-abstract class SqlWorkflow {
+class SqlWorkflow {
     private BLStrategy blStrategy;
 
     protected SqlWorkflow(BLStrategy blStrategy) {
@@ -43,6 +50,7 @@ abstract class SqlWorkflow {
 
 }
 
+@FunctionalInterface
 interface BLStrategy {
-     void doBusinessLogic();
+     String doBusinessLogic(String param);
 }
