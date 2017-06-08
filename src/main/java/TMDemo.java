@@ -4,30 +4,18 @@ import java.util.function.Supplier;
 
 public class TMDemo {
     public static void main(String[] args) {
-        new SqlWorkflow(System.out::println);
+        new MyBlWorkflow().execute();
     }
 }
 
-class MyyDbBusinessLogic implements Supplier {
-    @Override
-    public Object get() {
-        c.createStatement().execute();
-    }
-}
-
-class SqlWorkflow {
-    private Supplier<Void> toDo;
-
-    SqlWorkflow(Supplier<Void> toDo) {
-        this.toDo = toDo;
-    }
-
-    public void execute() {
+//Template Method
+abstract class SqlWorkflow {
+    public final void execute() {
         Connection c = ;
         try {
             c = ???;
 
-            //; -> toDo.get()
+            this.doBusinessLogic();
 
             while ((w = w.getNextWarning()) != null) {
 
@@ -45,5 +33,14 @@ class SqlWorkflow {
         }
 
     }
+
+    protected abstract void doBusinessLogic();
+
 }
 
+class MyBlWorkflow extends SqlWorkflow {
+    @Override
+    protected void doBusinessLogic() {
+        //
+    }
+}
