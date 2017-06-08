@@ -10,7 +10,7 @@ public class Logger {
     public Logger(LoggerFilter filter, LoggerSaver saver) {
         this.filter = filter;
         this.saver = saver;
-        Connection.TRANSACTION_NONE
+//        Connection.TRANSACTION_NONE
     }
 
     /**
