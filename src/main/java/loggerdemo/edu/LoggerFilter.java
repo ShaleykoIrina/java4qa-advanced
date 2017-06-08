@@ -10,9 +10,38 @@ TODO
 + переменные в интерфейсе
 + @Override
 + кастинг
-- реализация в интерфейсе
++ реализация в интерфейсе
  */
 public interface LoggerFilter extends Serializable {
-    int MY_SUPER_CONST = 10;
+    static final int MY_SUPER_CONST = 10;
     boolean filter(Object message);
+
+    abstract boolean getLastFilterState();
+
+    //region New j8 era
+    static void m() {
+        System.out.println("fff");
+    }
+
+    default void getLastFilteredMessages() {
+        this.getLastFilterState();
+    }
+    //endregion
+}
+
+class ContractViolatorFilter implements LoggerFilter {
+    @Override
+    public boolean getLastFilterState() {
+//        LoggerFilter.super.getLastFilterState();
+        return false;
+    }
+
+    @Override
+    public boolean filter(Object message) {
+        return false;
+    }
+
+    @Override
+    public void getLastFilteredMessages() {
+    }
 }

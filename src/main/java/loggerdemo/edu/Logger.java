@@ -1,5 +1,7 @@
 package loggerdemo.edu;
 
+import java.sql.Connection;
+
 public class Logger {
     //GRASP: Creator
     private LoggerFilter filter = new FilterFactory().create(); //Factory -> Abstract Factory
@@ -8,6 +10,7 @@ public class Logger {
     public Logger(LoggerFilter filter, LoggerSaver saver) {
         this.filter = filter;
         this.saver = saver;
+        Connection.TRANSACTION_NONE
     }
 
     /**
