@@ -1,26 +1,24 @@
 package loggerdemo.edu;
 
-import sun.font.Decoration;
-
-import java.sql.Connection;
-
 public class Logger {
     //GRASP: Creator
     private LoggerFilter filter = new FilterFactory().create(); //Factory -> Abstract Factory
     private LoggerSaver saver; //DI
+    private LoggerMessageFormatter formatter;
 
-    public Logger(LoggerFilter filter, LoggerSaver saver) {
+    public Logger(LoggerFilter filter, LoggerSaver saver, LoggerMessageFormatter formatter) {
         this.filter = filter;
         this.saver = saver;
+        this.formatter = formatter;
     }
 
     /**
      * JavaDoc comment. <b>AHTUNG!!!! NOT NULL!!</b>
      * @throws
      */
-    public void log(String message, Decorator decorator) {
+    public void log(String message) {
         if (filter.filter(message)) {
-            saver.save(decorator.decorate(message));
+            saver.save(formatter.format(message));
         }
     }
 }
