@@ -24,6 +24,7 @@ class SqlWorkflow {
     }
 
     public final void execute() {
+        /*
         Connection c = ;
         try {
             c = ???;
@@ -44,7 +45,7 @@ class SqlWorkflow {
                 e.printStackTrace();
             }
         }
-
+*/
     }
 
 

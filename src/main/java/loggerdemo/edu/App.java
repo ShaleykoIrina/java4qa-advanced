@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class App {
     public static void main(String... args) {
-        Logger logger = new Logger(new MessageContentLoggerFilter(), new ConsoleLoggerSaver(), formatter);
+        Logger logger = new Logger(new MessageContentLoggerFilter(), new ConsoleLoggerSaver());
         logger.log("message", message -> "");
 
         Predicate<String> stringPredicate = element -> element.length() < 6;
