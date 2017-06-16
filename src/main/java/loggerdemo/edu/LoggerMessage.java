@@ -33,12 +33,13 @@ abstract class MYBL {
         //....
     }
 
-     protected abstract void step();
+     protected abstract String step();
 }
 
 class MyBLImpl extends MYBL {
     @Override
-    protected void step() {
+    protected String step() {
+        return null;
     }
 }
 
