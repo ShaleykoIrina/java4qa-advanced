@@ -2,8 +2,7 @@ package generics;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 public class GenericsDemo {
     public static void main(String[] args) {
@@ -39,6 +38,20 @@ public class GenericsDemo {
                 .forEach(e -> e.byteValue());
         //endregion
 
+        Collections.sort(
+            Arrays.asList("", 2, 1), //Collection<T>
+            new Comparator<Serializable>() {
+                @Override
+                public int compare(Serializable o1, Serializable o2) {
+                    return 0;
+                }
+            }
+        );
+
+        MySuperCollection2 c11 = null;
+        c11.add(new Object());
+
+        MySuperCollection3 c12;
     }
 }
 
@@ -58,10 +71,10 @@ class MyCollection<T> {
 }
 
 //region showcase #5: fixing type parameter with inheritance/implementation
-class MySuperCollection1 extends MyCollection {
+class MySuperCollection1<T> extends MyCollection<T> {
     //what's T?
 }
-class MySuperCollection2<Integer> extends MyCollection {
+class MySuperCollection2<Integer> extends MyCollection<Object> {
     //what's T?
 }
 class MySuperCollection3 extends MyCollection<Integer> {
