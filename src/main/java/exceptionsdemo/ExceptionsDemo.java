@@ -15,24 +15,24 @@ public class ExceptionsDemo {
 
     private static void save() {
         LoggerFilterException loggerFilterException = null;
-        try {
-            //connection = openConnection();
-            if (true) {
-                throw new LoggerSaveException("system exception");
-            }
-        } catch (LoggerSaveException e) {
-            loggerFilterException = new LoggerFilterException("business exception", e);
-            throw loggerFilterException;
-        } finally {
-            try {
-                //if(c != null) connection.close();
-                connectionClose();
-            } catch (RuntimeException e) {
-                e.addSuppressed(loggerFilterException);
-                throw e;
-            }
+        try (MyResource resource = new MyResource()) {
+
+            //....
+
+        } catch (RuntimeException e) {
+
+        }  finally {
+            System.out.println("my");
+
         }
         //....
+
+        try {
+            //.......RunExc
+            //...NPE
+        } catch (NullPointerException | NumberFormatException e) {
+            //....
+        }
     }
 
     private static void connectionClose() {
