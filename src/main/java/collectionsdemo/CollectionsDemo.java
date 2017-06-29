@@ -4,6 +4,9 @@ import org.hamcrest.Matchers;
 
 import java.util.*;
 
+import static java.util.Collections.synchronizedList;
+import static java.util.Collections.unmodifiableCollection;
+import static java.util.Comparator.comparingInt;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -87,12 +90,7 @@ public class CollectionsDemo {
         assertThat(new TreeSet(), isA(NavigableSet.class));
 
         //region Ordering set up with comparator
-        TreeSet<Cat> cats = new TreeSet<>(new Comparator<Cat>() {
-            @Override
-            public int compare(Cat o1, Cat o2) {
-                return o1.getName().length() - o2.getName().length();
-            }
-        });
+        TreeSet<Cat> cats = new TreeSet<>(comparingInt(o -> o.getName().length()));
         //TODO convert anonymous class to lambda
         //TODO convert lambda to utility Comparator method
 
@@ -100,6 +98,10 @@ public class CollectionsDemo {
         cats.add(new Cat("Murik"));
         cats.add(new Cat("Murk"));
         assertThat(cats.first(), is(new Cat("Murk")));
+        assertThat(
+            cats.floor(new Cat("11111111")).toString(),
+            is("Murzik")
+        );
         assertThat(cats.last(), is(new Cat("Murzik")));
         //endregion
 
@@ -113,6 +115,8 @@ public class CollectionsDemo {
         //endregion
         //endregion
 
+        List<Object> objects = synchronizedList(new ArrayList<>());
+        unmodifiableCollection(new ArrayList<>()).add("");
     }
 }
 
